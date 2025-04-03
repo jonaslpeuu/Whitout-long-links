@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WClinks - Weiterleitung</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+        }
+
+        .redirect-container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .timer {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .skip-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .skip-link:hover {
+            background-color: white;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <h1>WClinks</h1>
+        <p>Wir leiten Sie weiter...</p>
+        <div class="timer" id="timer">5</div>
+        <a href="#" id="skipLink" class="skip-link">Zum Ziel springen</a>
+    </div>
+
+    <script>
+        // Get the target URL from the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetUrl = urlParams.get('url');
+
+        if (!targetUrl) {
+            window.location.href = 'https://whitout_long_links.com/';
+            return;
+        }
+
+        // Get elements
+        const timerElement = document.getElementById('timer');
+        const skipLink = document.getElementById('skipLink');
+
+        // Set skip link href
+        skipLink.href = targetUrl;
+
+        // Redirect after 5 seconds
+        let timeLeft = 5;
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            
+            if (timeLeft === 0) {
+                clearInterval(countdown);
+                window.location.href = targetUrl;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

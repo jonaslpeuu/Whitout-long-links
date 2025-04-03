@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WClinks - Dein Link-Verkürzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">☀️</button>
+    <div id="notification" class="notification"></div>
+
+    <nav>
+        <div class="nav-content">
+            <h1>WClinks</h1>
+            <div class="nav-links">
+                <a href="#hero" class="active">Home</a>
+                <a href="#stats">Statistiken</a>
+                <a href="#about">Über uns</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h2>Verkürze deine Links</h2>
+                <p>Mach deine Links kürzer und professioneller</p>
+                <div class="input-container">
+                    <input type="text" id="originalLink" placeholder="Deinen Link hier einfügen...">
+                    <button id="shortenButton" class="primary-button">
+                        <i class="fas fa-link"></i> Verkürzen
+                    </button>
+                </div>
+                <div id="result" class="result-container">
+                    <input type="text" id="shortLink" readonly>
+                    <button id="copyButton" class="primary-button">
+                        <i class="fas fa-copy"></i> Kopieren
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="stats">
+            <h2>Deine Statistiken</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-link"></i>
+                    <h3>Verkürzte Links</h3>
+                    <p id="totalLinks">0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Klicks</h3>
+                    <p id="totalClicks">0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Durchschnittliche Klickrate</h3>
+                    <p id="avgClickRate">0%</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>Über WClinks</h2>
+            <div class="about-content">
+                <p>WClinks ist dein moderner Link-Verkürzer, der dir hilft, deine Links professionell und kürzer zu machen.</p>
+                <p>Unsere einfache, aber effektive Schnittstelle ermöglicht es dir, deine Links in Sekundenschnelle zu verwalten.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>WClinks</h3>
+                <p>Dein moderner Link-Verkürzer</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Email: support@wclinks.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
