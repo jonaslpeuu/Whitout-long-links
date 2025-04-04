@@ -1,6 +1,6 @@
-WEBSITE=whitoutlonglinks.netlify.app
-
 # WClinks - Modern Link Shortener
+
+**Website:** [whitoutlonglinks.netlify.app](https://whitoutlonglinks.netlify.app)
 
 WClinks ist ein moderner, responsiver Link-Verkürzer, der es dir ermöglicht, deine Links professionell und kürzer zu machen. Das Projekt verwendet die TinyURL API, um offizielle, dauerhaft gültige gekürzte Links zu erzeugen.
 
