@@ -69,24 +69,37 @@
         <a href="#" id="skipLink" class="skip-link">Zum Ziel springen</a>
     </div>
 
+    <script src="storage.js"></script>
     <script>
-        // Get the target URL from the query parameter
+        // Parameter aus der URL extrahieren
         const urlParams = new URLSearchParams(window.location.search);
         const targetUrl = urlParams.get('url');
+        const shortCode = urlParams.get('code');
 
         if (!targetUrl) {
-            window.location.href = 'https://whitout_long_links.com/';
+            window.location.href = './index.html';
             return;
         }
 
-        // Get elements
+        // UI-Elemente abrufen
         const timerElement = document.getElementById('timer');
         const skipLink = document.getElementById('skipLink');
 
-        // Set skip link href
+        // Ziel-URL für den Skip-Link setzen
         skipLink.href = targetUrl;
+        
+        // Klick für diesen Link registrieren, falls ein Code vorhanden ist
+        if (shortCode && window.storage) {
+            console.log('Erfasse Klick für Code:', shortCode);
+            try {
+                window.storage.incrementClick(shortCode);
+                console.log('Klick erfolgreich erfasst');
+            } catch (error) {
+                console.error('Fehler beim Erfassen des Klicks:', error);
+            }
+        }
 
-        // Redirect after 5 seconds
+        // Automatische Weiterleitung nach 5 Sekunden
         let timeLeft = 5;
         const countdown = setInterval(() => {
             timeLeft--;
